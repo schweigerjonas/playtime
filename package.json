@@ -1,9 +1,12 @@
 {
   "name": "playtime",
   "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Playtime: a Hapi/node application for managing Playlists.",
+  "main": "src/server.js",
+  "type": "module",
   "scripts": {
+    "start": "node src/server.js",
+    "lint": "./node_modules/.bin/eslint . --ext .js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,5 +17,8 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
     "prettier": "^3.6.2"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^21.4.3"
   }
 }

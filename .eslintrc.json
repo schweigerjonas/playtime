@@ -19,5 +19,14 @@
     "no-undef": "off",
     "func-names": "off",
     "no-console": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {},
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts"],
+        "paths": ["src"]
+      }
+    }
   }
 }

@@ -1,5 +1,5 @@
-import { userMemStore } from "./mem/user-mem-store";
-import { playlistMemStore } from "./mem/playlist-mem-store";
+import { userMemStore } from "./mem/user-mem-store.js";
+import { playlistMemStore } from "./mem/playlist-mem-store.js";
 
 export const db = {
   userStore: null,

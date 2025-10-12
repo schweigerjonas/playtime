@@ -11,11 +11,6 @@ export const dashboardController = {
       return h.view("dashboard-view", viewData);
     },
   },
-  about: {
-    handler: function (request, h) {
-      return h.view("about-view", { title: "About Playtime" });
-    },
-  },
   addPlaylist: {
     handler: async function (request, h) {
       const playlist = {

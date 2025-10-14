@@ -4,7 +4,7 @@ let tracks = [];
 
 export const trackMemStore = {
   async addTrack(track, playlistId) {
-    track._id = uuidv4;
+    track._id = uuidv4();
     track.playlistId = playlistId;
     tracks.push(track);
     return track;

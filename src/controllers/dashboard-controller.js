@@ -24,4 +24,11 @@ export const dashboardController = {
       return h.redirect("/dashboard");
     },
   },
+  deletePlaylist: {
+    handler: async function (request, h) {
+      const { id } = request.params;
+      await db.playlistStore.deletePlaylistById(id);
+      return h.redirect("/dashboard");
+    },
+  },
 };

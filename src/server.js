@@ -3,6 +3,7 @@ import Vision from "@hapi/vision";
 import Cookie from "@hapi/cookie";
 import Handlebars from "handlebars";
 import path from "path";
+import "dotenv/config";
 
 import { fileURLToPath } from "url";
 import { webRoutes } from "./web-routes.js";
@@ -33,8 +34,8 @@ async function init() {
   });
   server.auth.strategy("session", "cookie", {
     cookie: {
-      name: "playtime",
-      password: "secretpasswordthatneedstobethirtytwocharacters",
+      name: process.env.COOKIE_NAME,
+      password: process.env.COOKIE_PASSWORD,
       isSecure: false,
     },
     redirectTo: "/",

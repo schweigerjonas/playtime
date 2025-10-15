@@ -1,4 +1,5 @@
 import { db } from "../models/db.js";
+import "dotenv/config";
 
 export const accountController = {
   index: {
@@ -42,7 +43,7 @@ export const accountController = {
   logout: {
     auth: false,
     handler: function (request, h) {
-      return h.redirect("/");
+      return h.redirect("/").unstate(process.env.COOKIE_NAME);
     },
   },
 

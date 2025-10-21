@@ -3,7 +3,7 @@ import Vision from "@hapi/vision";
 import Cookie from "@hapi/cookie";
 import Handlebars from "handlebars";
 import path from "path";
-import "dotenv/config";
+import dotenv from "dotenv";
 
 import { fileURLToPath } from "url";
 import { webRoutes } from "./web-routes.js";
@@ -18,6 +18,12 @@ async function init() {
     port: 3000,
     host: "localhost",
   });
+
+  const result = dotenv.config();
+  if (result.error) {
+    console.log(result.error.message);
+    process.exit(1);
+  }
 
   await server.register(Vision);
   await server.register(Cookie);

@@ -43,7 +43,8 @@ export const accountController = {
   logout: {
     auth: false,
     handler: function (request, h) {
-      return h.redirect("/").unstate(process.env.COOKIE_NAME);
+      request.cookieAuth.clear();
+      return h.redirect("/");
     },
   },
 

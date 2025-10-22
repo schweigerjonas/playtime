@@ -26,7 +26,7 @@ export const playlistController = {
       const track = {
         title: request.payload.title,
         artist: request.payload.artist,
-        duration: request.payload.duration,
+        duration: Number(request.payload.duration),
       };
       const playlist = await db.playlistStore.getPlaylistById(id);
       await db.trackStore.addTrack(playlist._id, track);

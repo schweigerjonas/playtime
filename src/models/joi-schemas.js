@@ -12,12 +12,12 @@ export const UserCredentialsSpec = {
   password: Joi.string().required(),
 };
 
-export const PlaylistSpeck = {
+export const PlaylistSpec = {
   title: Joi.string().required(),
 };
 
-export const TrackSpeck = {
+export const TrackSpec = {
   title: Joi.string().required(),
   artist: Joi.string().required(),
-  duration: Joi.string().required(),
+  duration: Joi.number().allow("").optional(),
 };

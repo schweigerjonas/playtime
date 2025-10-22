@@ -8,7 +8,13 @@
       "_id": "ca67cdc6-069f-4cec-90d9-a0c8958ca771"
     }
   ],
-  "playlists": [],
+  "playlists": [
+    {
+      "userId": "ca67cdc6-069f-4cec-90d9-a0c8958ca771",
+      "title": "playlist",
+      "_id": "8eb144d2-9ba7-4399-bb00-1004f0f7f6af"
+    }
+  ],
   "tracks": [
     {
       "title": "track",

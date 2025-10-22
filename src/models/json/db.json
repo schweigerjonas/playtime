@@ -1,13 +1,5 @@
 {
-  "users": [
-    {
-      "firstName": "a",
-      "lastName": "a",
-      "email": "test@a.com",
-      "password": "a",
-      "_id": "ca67cdc6-069f-4cec-90d9-a0c8958ca771"
-    }
-  ],
+  "users": [],
   "playlists": [
     {
       "userId": "ca67cdc6-069f-4cec-90d9-a0c8958ca771",
@@ -22,6 +14,20 @@
       "duration": "123",
       "_id": "b0a5aa98-3cf7-4aa7-8646-285154770379",
       "playlistid": "e2142727-74f0-49b9-a44f-34ebc4621a7f"
+    },
+    {
+      "title": "test",
+      "artist": "test",
+      "duration": 0,
+      "_id": "772c265f-113f-45c3-a408-58cffc4457ae",
+      "playlistid": "8eb144d2-9ba7-4399-bb00-1004f0f7f6af"
+    },
+    {
+      "title": "test",
+      "artist": "test",
+      "duration": 4,
+      "_id": "d2a288e0-02c6-4399-ad22-f98e6d63ea20",
+      "playlistid": "8eb144d2-9ba7-4399-bb00-1004f0f7f6af"
     }
   ]
 }

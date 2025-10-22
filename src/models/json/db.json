@@ -1,0 +1,21 @@
+{
+  "users": [
+    {
+      "firstName": "a",
+      "lastName": "a",
+      "email": "test@a.com",
+      "password": "a",
+      "_id": "ca67cdc6-069f-4cec-90d9-a0c8958ca771"
+    }
+  ],
+  "playlists": [],
+  "tracks": [
+    {
+      "title": "track",
+      "artist": "trackartist",
+      "duration": "123",
+      "_id": "b0a5aa98-3cf7-4aa7-8646-285154770379",
+      "playlistid": "e2142727-74f0-49b9-a44f-34ebc4621a7f"
+    }
+  ]
+}

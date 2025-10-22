@@ -21,7 +21,7 @@ export const playlistController = {
         duration: request.payload.duration,
       };
       const playlist = await db.playlistStore.getPlaylistById(id);
-      await db.trackStore.addTrack(track, playlist._id);
+      await db.trackStore.addTrack(playlist._id, track);
       return h.redirect(`/playlist/${id}`);
     },
   },

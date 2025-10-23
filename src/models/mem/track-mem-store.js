@@ -15,11 +15,15 @@ export const trackMemStore = {
   },
 
   async getTrackById(id) {
-    return tracks.find((track) => track._id === id);
+    let foundTrack = tracks.find((track) => track._id === id);
+    if (foundTrack === undefined) foundTrack = null;
+    return foundTrack;
   },
 
   async getTracksByPlaylistId(playlistId) {
-    return tracks.filter((track) => track.playlistId === playlistId);
+    let foundTracks = tracks.filter((track) => track.playlistId === playlistId);
+    if (foundTracks === undefined) foundTracks = null;
+    return foundTracks;
   },
 
   async updateTrackById(newTrack, id) {
@@ -32,7 +36,7 @@ export const trackMemStore = {
 
   async deleteTrackById(id) {
     const index = tracks.findIndex((track) => track._id === id);
-    return tracks.splice(index, 1);
+    if (index !== -1) tracks.splice(index, 1);
   },
 
   async deleteAllTracks() {

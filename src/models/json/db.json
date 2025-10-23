@@ -5,28 +5,41 @@
       "lastName": "Simpson",
       "email": "homer@simpson.com",
       "password": "secret",
-      "_id": "ad3e87b0-5a19-427a-a106-bf51977d4ff4"
+      "_id": "e4125fce-6be6-460d-a35e-1cadb03d0fdf"
     },
     {
       "firstName": "Marge",
       "lastName": "Simpson",
       "email": "marge@simpson.com",
       "password": "secret",
-      "_id": "fc686cc8-46fc-441a-a37d-8470c403a36d"
+      "_id": "59cf86e9-357e-4d74-aacd-673f652ad041"
     },
     {
       "firstName": "Bart",
       "lastName": "Simpson",
       "email": "bart@simpson.com",
       "password": "secret",
-      "_id": "6b43fc4a-32bc-4a4b-886a-1244ddfc010f"
+      "_id": "044aa3c3-6b35-4496-8d04-5fc1e1e4670b"
     }
   ],
   "playlists": [
     {
-      "userId": "ca67cdc6-069f-4cec-90d9-a0c8958ca771",
-      "title": "playlist",
-      "_id": "8eb144d2-9ba7-4399-bb00-1004f0f7f6af"
+      "userId": "123id",
+      "title": "playlist-title",
+      "tracks": [],
+      "_id": "d1bd0644-d6a5-4127-b471-72acf0837191"
+    },
+    {
+      "userId": "246id",
+      "title": "playlist-title2",
+      "tracks": [],
+      "_id": "e0fc94f4-90c5-4523-ada0-b6b6df5b42a3"
+    },
+    {
+      "userId": "369id",
+      "title": "playlist-title3",
+      "tracks": [],
+      "_id": "18335a0e-f6ee-4ae8-b441-7743960ce74a"
     }
   ],
   "tracks": [

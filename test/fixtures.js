@@ -25,3 +25,32 @@ export const testUsers = [
     password: "secret",
   },
 ];
+
+export const testPlaylist = {
+  userId: "test-id",
+  title: "test-playlist-title",
+  tracks: [],
+};
+export const testPlaylist2 = {
+  userId: "test-id",
+  title: "test-playlist-title",
+  tracks: [],
+};
+
+export const testPlaylists = [
+  {
+    userId: "123id",
+    title: "playlist-title",
+    tracks: [],
+  },
+  {
+    userId: "246id",
+    title: "playlist-title2",
+    tracks: [],
+  },
+  {
+    userId: "369id",
+    title: "playlist-title3",
+    tracks: [],
+  },
+];

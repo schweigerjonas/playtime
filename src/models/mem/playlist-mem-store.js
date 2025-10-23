@@ -16,18 +16,25 @@ export const playlistMemStore = {
   },
 
   async getPlaylistById(id) {
-    const playlist = playlists.find((p) => p._id === id);
-    playlist.tracks = await trackMemStore.getTracksByPlaylistId(playlist._id);
+    let playlist = playlists.find((p) => p._id === id);
+    if (playlist === undefined) {
+      playlist = null;
+    } else {
+      playlist.tracks = await trackMemStore.getTracksByPlaylistId(playlist._id);
+    }
     return playlist;
   },
 
   async getUserPlaylists(userId) {
-    return playlists.filter((playlist) => playlist.userId === userId);
+    let lists = playlists.filter((playlist) => playlist.userId === userId);
+    if (lists === undefined || lists.length === 0) lists = null;
+    return lists;
   },
 
   async deletePlaylistById(id) {
     const index = playlists.findIndex((playlist) => playlist._id === id);
-    return playlists.splice(index, 1);
+    if (index !== -1) playlists.splice(index, 1);
+    return playlists;
   },
 
   async deleteAllPlaylists() {

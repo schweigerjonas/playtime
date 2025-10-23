@@ -41,3 +41,31 @@ export const testPlaylists = [
     title: "Beethoven Symphonies",
   },
 ];
+
+export const popsmoke = {
+  title: "Meet the Woo",
+};
+
+export const hawkem = {
+  artist: "Pop Smoke",
+  title: "Hawk Em",
+  duration: 12,
+};
+
+export const testTracks = [
+  {
+    artist: "Pop Smoke",
+    title: "Welcome to the Party",
+    duration: 5,
+  },
+  {
+    artist: "Pop Smoke",
+    title: "Dior",
+    duration: 8,
+  },
+  {
+    artist: "Pop Smoke",
+    title: "Invincible",
+    duration: 3,
+  },
+];

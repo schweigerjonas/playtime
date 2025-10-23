@@ -27,9 +27,9 @@ export const playlistJsonStore = {
     return list;
   },
 
-  async getUserPlaylists(userid) {
+  async getUserPlaylists(userId) {
     await db.read();
-    let lists = db.data.playlists.filter((playlist) => playlist.userId === userid);
+    let lists = db.data.playlists.filter((playlist) => playlist.userId === userId);
     if (lists === undefined || lists.length === 0) lists = null;
     return lists;
   },

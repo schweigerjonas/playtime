@@ -26,7 +26,7 @@ export const playlistMongoStore = {
   },
 
   async getUserPlaylists(id) {
-    const playlist = await Playlist.find({ userid: id }).lean();
+    const playlist = await Playlist.find({ userId: id }).lean();
     return playlist;
   },
 

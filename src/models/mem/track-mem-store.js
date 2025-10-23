@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 let tracks = [];
 
 export const trackMemStore = {
-  async addTrack(track, playlistId) {
+  async addTrack(playlistId, track) {
     track._id = uuidv4();
     track.playlistId = playlistId;
     tracks.push(track);
@@ -34,7 +34,7 @@ export const trackMemStore = {
     return track;
   },
 
-  async deleteTrackById(id) {
+  async deleteTrack(id) {
     const index = tracks.findIndex((track) => track._id === id);
     if (index !== -1) tracks.splice(index, 1);
   },

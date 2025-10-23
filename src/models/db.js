@@ -21,7 +21,7 @@ export const db = {
       case "mongo":
         this.userStore = userMongoStore;
         this.playlistStore = playlistMongoStore;
-        // this.trackStore = trackMongoStore;
+        this.trackStore = trackMongoStore;
         connectMongo();
         break;
       case "json":

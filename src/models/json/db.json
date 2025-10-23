@@ -24,39 +24,31 @@
   ],
   "playlists": [
     {
-      "title": "Beethoven Sonatas",
-      "_id": "c3bacb5c-51a4-4f3b-abd4-72f14caeec71"
-    },
-    {
-      "title": "Beethoven Concertos",
-      "_id": "ddbfe716-4581-45db-8013-af7f1074b077"
-    },
-    {
-      "title": "Beethoven Symphonies",
-      "_id": "5edc512c-f794-4dbb-9d3f-edbfd6c66c7e"
+      "title": "Meet the Woo",
+      "_id": "40f51da8-365f-4710-97db-b21fb5601eff"
     }
   ],
   "tracks": [
     {
-      "title": "track",
-      "artist": "trackartist",
-      "duration": "123",
-      "_id": "b0a5aa98-3cf7-4aa7-8646-285154770379",
-      "playlistid": "e2142727-74f0-49b9-a44f-34ebc4621a7f"
+      "artist": "Pop Smoke",
+      "title": "Welcome to the Party",
+      "duration": 5,
+      "_id": "1c20df2f-e886-47bb-a762-cbe4333abd51",
+      "playlistid": "40f51da8-365f-4710-97db-b21fb5601eff"
     },
     {
-      "title": "test",
-      "artist": "test",
-      "duration": 0,
-      "_id": "772c265f-113f-45c3-a408-58cffc4457ae",
-      "playlistid": "8eb144d2-9ba7-4399-bb00-1004f0f7f6af"
+      "artist": "Pop Smoke",
+      "title": "Dior",
+      "duration": 8,
+      "_id": "90df2968-6cb1-4e1d-a814-1d29eea60980",
+      "playlistid": "40f51da8-365f-4710-97db-b21fb5601eff"
     },
     {
-      "title": "test",
-      "artist": "test",
-      "duration": 4,
-      "_id": "d2a288e0-02c6-4399-ad22-f98e6d63ea20",
-      "playlistid": "8eb144d2-9ba7-4399-bb00-1004f0f7f6af"
+      "artist": "Pop Smoke",
+      "title": "Invincible",
+      "duration": 3,
+      "_id": "3d6aecb8-aab2-4c90-8bc3-6f4800754953",
+      "playlistid": "40f51da8-365f-4710-97db-b21fb5601eff"
     }
   ]
 }

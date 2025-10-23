@@ -12,14 +12,16 @@ export const db = {
   trackStore: null,
 
   init(storeType) {
-    if (storeType === "json") {
-      this.userStore = userJsonStore;
-      this.playlistStore = playlistJsonStore;
-      this.trackStore = trackJsonStore;
-    } else {
-      this.userStore = userMemStore;
-      this.playlistStore = playlistMemStore;
-      this.trackStore = trackMemStore;
+    switch (storeType) {
+      case "json":
+        this.userStore = userJsonStore;
+        this.playlistStore = playlistJsonStore;
+        this.trackStore = trackJsonStore;
+        break;
+      default:
+        this.userStore = userMemStore;
+        this.playlistStore = playlistMemStore;
+        this.trackStore = trackMemStore;
     }
   },
 };

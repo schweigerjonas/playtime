@@ -26,31 +26,18 @@ export const testUsers = [
   },
 ];
 
-export const testPlaylist = {
-  userId: "test-id",
-  title: "test-playlist-title",
-  tracks: [],
-};
-export const testPlaylist2 = {
-  userId: "test-id",
-  title: "test-playlist-title",
-  tracks: [],
+export const mozart = {
+  title: "Mozart Favourites",
 };
 
 export const testPlaylists = [
   {
-    userId: "123id",
-    title: "playlist-title",
-    tracks: [],
+    title: "Beethoven Sonatas",
   },
   {
-    userId: "246id",
-    title: "playlist-title2",
-    tracks: [],
+    title: "Beethoven Concertos",
   },
   {
-    userId: "369id",
-    title: "playlist-title3",
-    tracks: [],
+    title: "Beethoven Symphonies",
   },
 ];

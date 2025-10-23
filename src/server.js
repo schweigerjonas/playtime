@@ -50,7 +50,7 @@ async function init() {
     validate: accountController.validate,
   });
   server.auth.default("session"); // option name equals name of defined strategy
-  db.init("json");
+  db.init("mongo");
   server.route(webRoutes);
   await server.start();
   console.log("Server running on port %s.", server.info.uri);

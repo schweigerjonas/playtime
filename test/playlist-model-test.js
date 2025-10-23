@@ -1,20 +1,24 @@
+import { EventEmitter } from "events";
+
 import { assert } from "chai";
 import { db } from "../src/models/db.js";
 import { mozart, testPlaylists } from "./fixtures.js";
+import { assertSubset } from "./test-utils.js";
 
 suite("Playlist Model tests", () => {
   setup(async () => {
-    db.init("json");
+    db.init("mongo");
     await db.playlistStore.deleteAllPlaylists();
     for (let i = 0; i < testPlaylists.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
       testPlaylists[i] = await db.playlistStore.addPlaylist(testPlaylists[i]);
     }
+    EventEmitter.setMaxListeners(25);
   });
 
   test("create a playlist", async () => {
     const playlist = await db.playlistStore.addPlaylist(mozart);
-    assert.equal(mozart, playlist);
+    assertSubset(mozart, playlist);
     assert.isDefined(playlist._id);
   });
 
@@ -29,7 +33,7 @@ suite("Playlist Model tests", () => {
   test("get a playlist - success", async () => {
     const playlist = await db.playlistStore.addPlaylist(mozart);
     const returnedPlaylist = await db.playlistStore.getPlaylistById(playlist._id);
-    assert.equal(mozart, playlist);
+    assertSubset(mozart, playlist);
   });
 
   // test("get user playlists - success", async () => {

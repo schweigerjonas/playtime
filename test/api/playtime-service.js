@@ -24,4 +24,24 @@ export const playtimeService = {
     const res = await axios.delete(`${this.playtimeUrl}/api/user`);
     return res.data;
   },
+
+  async createPlaylist(playlist) {
+    const res = await axios.post(`${this.playtimeUrl}/api/playlist`, playlist);
+    return res.data;
+  },
+
+  async getPlaylist(id) {
+    const res = await axios.get(`${this.playtimeUrl}/api/playlist/${id}`);
+    return res.data;
+  },
+
+  async getAllPlaylists() {
+    const res = await axios.get(`${this.playtimeUrl}/api/playlist`);
+    return res.data;
+  },
+
+  async deleteAllPlaylists() {
+    const res = await axios.delete(`${this.playtimeUrl}/api/playlist`);
+    return res.data;
+  },
 };

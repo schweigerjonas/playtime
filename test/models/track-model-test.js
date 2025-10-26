@@ -1,9 +1,9 @@
 import { EventEmitter } from "events";
 
 import { assert } from "chai";
-import { db } from "../src/models/db.js";
-import { hawkem, popsmoke, testTracks } from "./fixtures.js";
-import { assertSubset } from "./test-utils.js";
+import { db } from "../../src/models/db.js";
+import { hawkem, popsmoke, testTracks } from "../fixtures.js";
+import { assertSubset } from "../test-utils.js";
 
 suite("Track Model tests", () => {
   let popsmokeList = null;

@@ -1,9 +1,9 @@
 import { EventEmitter } from "events";
 
 import { assert } from "chai";
-import { db } from "../src/models/db.js";
-import { mozart, testPlaylists } from "./fixtures.js";
-import { assertSubset } from "./test-utils.js";
+import { db } from "../../src/models/db.js";
+import { mozart, testPlaylists } from "../fixtures.js";
+import { assertSubset } from "../test-utils.js";
 
 suite("Playlist Model tests", () => {
   setup(async () => {

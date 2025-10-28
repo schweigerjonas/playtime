@@ -122,4 +122,4 @@ dist
 .pnp.*
 
 # Local DB file
-./src/models/json/db.json
+src/models/json/db.json

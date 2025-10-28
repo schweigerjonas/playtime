@@ -5,6 +5,7 @@ import { serviceUrl } from "../fixtures.js";
 export const playtimeService = {
   playtimeUrl: serviceUrl,
 
+  // User API methods
   async createUser(user) {
     const res = await axios.post(`${this.playtimeUrl}/api/user`, user);
     return res.data;
@@ -25,6 +26,7 @@ export const playtimeService = {
     return res.data;
   },
 
+  // Playlist API methods
   async createPlaylist(playlist) {
     const res = await axios.post(`${this.playtimeUrl}/api/playlist`, playlist);
     return res.data;
@@ -42,6 +44,27 @@ export const playtimeService = {
 
   async deleteAllPlaylists() {
     const res = await axios.delete(`${this.playtimeUrl}/api/playlist`);
+    return res.data;
+  },
+
+  // Track API tests
+  async createTrack(playlistId, track) {
+    const res = await axios.post(`${this.playtimeUrl}/api/track`, { playlistId, track });
+    return res.data;
+  },
+
+  async getTrack(id) {
+    const res = await axios.get(`${this.playtimeUrl}/api/track/${id}`);
+    return res.data;
+  },
+
+  async getAllTracks() {
+    const res = await axios.get(`${this.playtimeUrl}/api/track`);
+    return res.data;
+  },
+
+  async deleteAllTracks() {
+    const res = await axios.delete(`${this.playtimeUrl}/api/track`);
     return res.data;
   },
 };

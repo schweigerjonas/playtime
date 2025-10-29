@@ -55,4 +55,20 @@ export const playlistApi = {
       }
     },
   },
+
+  deleteOne: {
+    auth: false,
+    handler: async function (request, h) {
+      try {
+        const playlist = await db.playlistStore.getPlaylistById(request.params.id);
+        if (!playlist) {
+          return Boom.notFound("No playlist with this id");
+        }
+        await db.playlistStore.deletePlaylistById(playlist._id);
+        return h.response().code(204);
+      } catch (err) {
+        return Boom.serverUnavailable("No playlist with this id");
+      }
+    },
+  },
 };

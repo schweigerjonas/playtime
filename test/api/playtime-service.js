@@ -42,12 +42,17 @@ export const playtimeService = {
     return res.data;
   },
 
+  async deletePlaylist(id) {
+    const res = await axios.delete(`${this.playtimeUrl}/api/playlist/${id}`);
+    return res;
+  },
+
   async deleteAllPlaylists() {
     const res = await axios.delete(`${this.playtimeUrl}/api/playlist`);
     return res.data;
   },
 
-  // Track API tests
+  // Track API methods
   async createTrack(playlistId, track) {
     const res = await axios.post(`${this.playtimeUrl}/api/track`, { playlistId, track });
     return res.data;

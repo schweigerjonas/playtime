@@ -5,6 +5,7 @@ import { assertSubset } from "../test-utils.js";
 
 suite("Track API tests", () => {
   let testPlaylist;
+
   setup(async () => {
     await playtimeService.deleteAllTracks();
     testPlaylist = await playtimeService.createPlaylist(popsmoke);

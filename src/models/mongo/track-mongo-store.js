@@ -8,6 +8,7 @@ export const trackMongoStore = {
   },
 
   async addTrack(playlistId, track) {
+    // Here is the problem, why calling the API doesn't work -> tests do work so something has to be wrong there
     track.playlistId = playlistId;
     const newTrack = new Track(track);
     const trackObj = await newTrack.save();

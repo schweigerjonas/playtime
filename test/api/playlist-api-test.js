@@ -15,6 +15,7 @@ suite("Playlist API tests", () => {
     user = await playtimeService.createUser(maggie);
     mozart.userId = user._id;
   });
+
   teardown(async () => {});
 
   test("create a playlist", async () => {

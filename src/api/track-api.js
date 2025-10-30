@@ -6,7 +6,7 @@ export const trackApi = {
     auth: false,
     handler: async function (request, h) {
       try {
-        const track = await db.trackStore.addTrack(request.payload.playlistId, request.payload.track);
+        const track = await db.trackStore.addTrack(request.params.id, request.payload);
         if (track) {
           return h.response(track).code(201);
         }
@@ -52,6 +52,22 @@ export const trackApi = {
         return h.response().code(204);
       } catch (err) {
         return Boom.serverUnavailable("Database Error");
+      }
+    },
+  },
+
+  deleteOne: {
+    auth: false,
+    handler: async function (request, h) {
+      try {
+        const track = await db.trackStore.getTrackById(request.params.id);
+        if (!track) {
+          return Boom.notFound("No track with this id");
+        }
+        await db.trackStore.deleteTrack(track._id);
+        return h.response().code(204);
+      } catch (err) {
+        return Boom.serverUnavailable("No track with this id");
       }
     },
   },

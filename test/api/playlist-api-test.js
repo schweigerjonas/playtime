@@ -52,7 +52,7 @@ suite("Playlist API tests", () => {
     }
   });
 
-  test("remove non-existed playlist", async () => {
+  test("remove non-existent playlist", async () => {
     try {
       const response = await playtimeService.deletePlaylist("invalid id");
       assert.fail("Should not return message");

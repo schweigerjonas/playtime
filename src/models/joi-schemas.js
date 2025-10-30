@@ -20,12 +20,25 @@ export const UserCredentialsSpec = {
   password: Joi.string().required(),
 };
 
-export const PlaylistSpec = {
-  title: Joi.string().required(),
+export const TrackSpec = {
+  title: Joi.string().example("Welcome to the party").required(),
+  artist: Joi.string().example("Pop Smoke").required(),
+  duration: Joi.number().allow("").example(5).optional(),
+  playlistId: IdSpec,
+  _id: IdSpec,
+  __v: Joi.number(),
 };
 
-export const TrackSpec = {
-  title: Joi.string().required(),
-  artist: Joi.string().required(),
-  duration: Joi.number().allow("").optional(),
-};
+export const TrackArray = Joi.array().items(TrackSpec).label("TrackArray");
+
+export const PlaylistSpec = Joi.object()
+  .keys({
+    title: Joi.string().example("Mozart Favourites").required(),
+    tracks: TrackArray,
+    userId: IdSpec,
+    _id: IdSpec,
+    __v: Joi.number(),
+  })
+  .label("PlaylistDetails");
+
+export const PlaylistArray = Joi.array().items(PlaylistSpec).label("PlaylistArray");

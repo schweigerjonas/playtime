@@ -1,3 +1,4 @@
+import { EventEmitter } from "events";
 import { assert } from "chai";
 import { db } from "../../src/models/db.js";
 import { maggie, testUsers } from "../fixtures.js";
@@ -11,6 +12,7 @@ suite("User Model tests", () => {
       // eslint-disable-next-line no-await-in-loop
       testUsers[i] = await db.userStore.addUser(testUsers[i]);
     }
+    EventEmitter.setMaxListeners(35);
   });
 
   test("create a user", async () => {

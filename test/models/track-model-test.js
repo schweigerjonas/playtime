@@ -1,5 +1,4 @@
 import { EventEmitter } from "events";
-
 import { assert } from "chai";
 import { db } from "../../src/models/db.js";
 import { hawkem, popsmoke, testTracks } from "../fixtures.js";
@@ -17,7 +16,7 @@ suite("Track Model tests", () => {
       // eslint-disable-next-line no-await-in-loop
       testTracks[i] = await db.trackStore.addTrack(popsmokeList._id, testTracks[i]);
     }
-    EventEmitter.setMaxListeners(25);
+    EventEmitter.setMaxListeners(30);
   });
 
   test("create a track", async () => {

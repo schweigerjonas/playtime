@@ -53,12 +53,15 @@ suite("Track API tests", () => {
     }
   });
 
-  test("test denormalized playlist", async () => {
-    try {
-      const returnedTrack = await playtimeService.getTrack("invalid id");
-      assert.fail("Should not return a response");
-    } catch (err) {
-      assert(err.response.data.message === "No track with this id", "Incorrect Response Message");
+  test("denormalised playlist", async () => {
+    for (let i = 0; i < testTracks.length; i += 1) {
+      // eslint-disable-next-line no-await-in-loop
+      await playtimeService.createTrack(popsmokePlaylist._id, testTracks[i]);
+    }
+    const returnedPlaylist = await playtimeService.getPlaylist(popsmokePlaylist._id);
+    assert.equal(returnedPlaylist.tracks.length, testTracks.length);
+    for (let i = 0; i < testTracks.length; i += 1) {
+      assertSubset(testTracks[i], returnedPlaylist.tracks[i]);
     }
   });
 });

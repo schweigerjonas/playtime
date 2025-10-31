@@ -7,6 +7,8 @@ import { db } from "../../src/models/db.js";
 
 EventEmitter.setMaxListeners(25);
 
+const tracks = new Array(testTracks.length);
+
 suite("Track API tests", () => {
   let user = null;
   let popsmokePlaylist = null;
@@ -32,10 +34,10 @@ suite("Track API tests", () => {
   test("create multiple tracks", async () => {
     for (let i = 0; i < testTracks.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      testTracks[i] = await playtimeService.createTrack(popsmokePlaylist._id, testTracks[i]);
+      tracks[i] = await playtimeService.createTrack(popsmokePlaylist._id, testTracks[i]);
     }
     let returnedTracks = await playtimeService.getAllTracks();
-    assert.equal(returnedTracks.length, testTracks.length);
+    assert.equal(returnedTracks.length, tracks.length);
     await playtimeService.deleteAllTracks();
     returnedTracks = await playtimeService.getAllTracks();
     assert.equal(returnedTracks.length, 0);

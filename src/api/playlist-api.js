@@ -1,6 +1,6 @@
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
-import { IdSpec, PlaylistArray, PlaylistSpec } from "../models/joi-schemas.js";
+import { IdSpec, PlaylistArray, PlaylistSpec, PlaylistSpecPlus } from "../models/joi-schemas.js";
 import { validationError } from "./logger.js";
 
 export const playlistApi = {
@@ -20,7 +20,7 @@ export const playlistApi = {
     tags: ["api"],
     description: "Create a playlist",
     notes: "Returns newly created playlist",
-    response: { schema: PlaylistSpec, failAction: validationError },
+    response: { schema: PlaylistSpecPlus, failAction: validationError },
     validate: { payload: PlaylistSpec, failAction: validationError },
   },
 
@@ -56,7 +56,7 @@ export const playlistApi = {
     tags: ["api"],
     description: "Get a specific playlist",
     notes: "Returns playlist details",
-    response: { schema: PlaylistSpec, failAction: validationError },
+    response: { schema: PlaylistSpecPlus, failAction: validationError },
     validate: { params: { id: IdSpec }, failAction: validationError },
   },
 

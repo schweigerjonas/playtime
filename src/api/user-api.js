@@ -1,6 +1,6 @@
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
-import { IdSpec, UserArray, UserSpec } from "../models/joi-schemas.js";
+import { IdSpec, UserArray, UserSpec, UserSpecPlus } from "../models/joi-schemas.js";
 import { validationError } from "./logger.js";
 
 export const userApi = {
@@ -20,8 +20,8 @@ export const userApi = {
     tags: ["api"],
     description: "Create a user",
     notes: "Returns the newly created user",
-    response: { schema: UserSpec, failAction: validationError },
     validate: { payload: UserSpec, failAction: validationError },
+    response: { schema: UserSpecPlus, failAction: validationError },
   },
 
   find: {
@@ -56,8 +56,8 @@ export const userApi = {
     tags: ["api"],
     description: "Get a specific user",
     notes: "Returns user details",
-    response: { schema: UserSpec, failAction: validationError },
     validate: { params: { id: IdSpec }, failAction: validationError },
+    response: { schema: UserSpecPlus, failAction: validationError },
   },
 
   deleteAll: {

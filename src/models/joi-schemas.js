@@ -2,43 +2,52 @@ import Joi from "joi";
 
 export const IdSpec = Joi.alternatives().try(Joi.string(), Joi.object()).description("a valid ID");
 
-export const UserSpec = Joi.object()
+export const UserCredentialsSpec = Joi.object()
   .keys({
-    firstName: Joi.string().example("Homer").required(),
-    lastName: Joi.string().example("Simpson").required(),
     email: Joi.string().email().example("homer@simpson.com").required(),
     password: Joi.string().example("secret").required(),
-    _id: IdSpec,
-    __v: Joi.number(),
   })
-  .label("UserDetails");
+  .label("UserCredentials");
 
-export const UserArray = Joi.array().items(UserSpec).label("UserArray");
+export const UserSpec = UserCredentialsSpec.keys({
+  firstName: Joi.string().example("Homer").required(),
+  lastName: Joi.string().example("Simpson").required(),
+}).label("UserDetails");
 
-export const UserCredentialsSpec = {
-  email: Joi.string().email().required(),
-  password: Joi.string().required(),
-};
-
-export const TrackSpec = {
-  title: Joi.string().example("Welcome to the party").required(),
-  artist: Joi.string().example("Pop Smoke").required(),
-  duration: Joi.number().allow("").example(5).optional(),
-  playlistId: IdSpec,
+export const UserSpecPlus = UserSpec.keys({
   _id: IdSpec,
   __v: Joi.number(),
-};
+}).label("UserDetailsPlus");
 
-export const TrackArray = Joi.array().items(TrackSpec).label("TrackArray");
+export const UserArray = Joi.array().items(UserSpecPlus).label("UserArray");
+
+export const TrackSpec = Joi.object()
+  .keys({
+    title: Joi.string().example("Welcome to the party").required(),
+    artist: Joi.string().example("Pop Smoke").required(),
+    duration: Joi.number().allow("").example(5).optional(),
+    playlistId: IdSpec,
+  })
+  .label("TrackDetails");
+
+export const TrackSpecPlus = TrackSpec.keys({
+  _id: IdSpec,
+  __v: Joi.number(),
+}).label("TrackDetailsPlus");
+
+export const TrackArray = Joi.array().items(TrackSpecPlus).label("TrackArray");
 
 export const PlaylistSpec = Joi.object()
   .keys({
     title: Joi.string().example("Mozart Favourites").required(),
     tracks: TrackArray,
     userId: IdSpec,
-    _id: IdSpec,
-    __v: Joi.number(),
   })
   .label("PlaylistDetails");
 
-export const PlaylistArray = Joi.array().items(PlaylistSpec).label("PlaylistArray");
+export const PlaylistSpecPlus = PlaylistSpec.keys({
+  _id: IdSpec,
+  __v: Joi.number(),
+}).label("PlaylistDetailsPlus");
+
+export const PlaylistArray = Joi.array().items(PlaylistSpecPlus).label("PlaylistArray");

@@ -15,10 +15,18 @@ suite("Track API tests", () => {
 
   setup(async () => {
     db.init("mongo");
+
+    playtimeService.clearAuth();
+    user = await playtimeService.createUser(maggie);
+    await playtimeService.authenticate(user);
+
     await playtimeService.deleteAllTracks();
     await playtimeService.deleteAllPlaylists();
     await playtimeService.deleteAllUsers();
+
     user = await playtimeService.createUser(maggie);
+    await playtimeService.authenticate(user);
+
     popsmoke.userId = user._id;
     popsmokePlaylist = await playtimeService.createPlaylist(popsmoke);
   });

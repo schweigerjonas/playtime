@@ -4,6 +4,16 @@ import { serviceUrl } from "../fixtures.js";
 
 export const playtimeService = {
   playtimeUrl: serviceUrl,
+  // Authentication API methods
+  async authenticate(user) {
+    const res = await axios.post(`${this.playtimeUrl}/api/user/authenticate`, user);
+    axios.defaults.headers.common.Authorization = `Bearer ${res.data.token}`;
+    return res.data;
+  },
+
+  async clearAuth() {
+    axios.defaults.headers.common.Authorization = "";
+  },
 
   // User API methods
   async createUser(user) {

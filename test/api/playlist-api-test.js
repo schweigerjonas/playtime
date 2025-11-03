@@ -12,9 +12,17 @@ suite("Playlist API tests", () => {
 
   setup(async () => {
     db.init("mongo");
+
+    playtimeService.clearAuth();
+    user = await playtimeService.createUser(maggie);
+    await playtimeService.authenticate(user);
+
     await playtimeService.deleteAllPlaylists();
     await playtimeService.deleteAllUsers();
+
     user = await playtimeService.createUser(maggie);
+    await playtimeService.authenticate(user);
+
     mozart.userId = user._id;
   });
 

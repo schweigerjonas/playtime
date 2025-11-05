@@ -1,7 +1,7 @@
 import { EventEmitter } from "events";
 import { assert } from "chai";
 import { playtimeService } from "./playtime-service.js";
-import { maggie, mozart, testPlaylists } from "../fixtures.js";
+import { maggie, maggieCredentials, mozart, testPlaylists } from "../fixtures.js";
 import { assertSubset } from "../test-utils.js";
 import { db } from "../../src/models/db.js";
 
@@ -15,13 +15,13 @@ suite("Playlist API tests", () => {
 
     playtimeService.clearAuth();
     user = await playtimeService.createUser(maggie);
-    await playtimeService.authenticate(user);
+    await playtimeService.authenticate(maggieCredentials);
 
     await playtimeService.deleteAllPlaylists();
     await playtimeService.deleteAllUsers();
 
     user = await playtimeService.createUser(maggie);
-    await playtimeService.authenticate(user);
+    await playtimeService.authenticate(maggieCredentials);
 
     mozart.userId = user._id;
   });

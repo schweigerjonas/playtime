@@ -1,5 +1,5 @@
 import { assert } from "chai";
-import { maggie } from "../fixtures.js";
+import { maggie, maggieCredentials } from "../fixtures.js";
 import { playtimeService } from "./playtime-service.js";
 import { decodeToken } from "../../src/api/jwt-utils.js";
 
@@ -7,20 +7,20 @@ suite("Authentication API tests", async () => {
   setup(async () => {
     playtimeService.clearAuth();
     await playtimeService.createUser(maggie);
-    await playtimeService.authenticate(maggie);
+    await playtimeService.authenticate(maggieCredentials);
     await playtimeService.deleteAllUsers();
   });
 
   test("authenticate", async () => {
     const returnedUser = await playtimeService.createUser(maggie);
-    const res = await playtimeService.authenticate(returnedUser);
+    const res = await playtimeService.authenticate(maggieCredentials);
     assert(res.success);
     assert.isDefined(res.token);
   });
 
   test("verify token", async () => {
     const returnedUser = await playtimeService.createUser(maggie);
-    const res = await playtimeService.authenticate(returnedUser);
+    const res = await playtimeService.authenticate(maggieCredentials);
 
     const userInfo = decodeToken(res.token);
     assert.equal(userInfo.email, returnedUser.email);

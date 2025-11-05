@@ -1,7 +1,7 @@
 import { EventEmitter } from "events";
 import { assert } from "chai";
 import { playtimeService } from "./playtime-service.js";
-import { hawkem, maggie, popsmoke, testTracks } from "../fixtures.js";
+import { hawkem, maggie, maggieCredentials, popsmoke, testTracks } from "../fixtures.js";
 import { assertSubset } from "../test-utils.js";
 import { db } from "../../src/models/db.js";
 
@@ -18,14 +18,14 @@ suite("Track API tests", () => {
 
     playtimeService.clearAuth();
     user = await playtimeService.createUser(maggie);
-    await playtimeService.authenticate(user);
+    await playtimeService.authenticate(maggieCredentials);
 
     await playtimeService.deleteAllTracks();
     await playtimeService.deleteAllPlaylists();
     await playtimeService.deleteAllUsers();
 
     user = await playtimeService.createUser(maggie);
-    await playtimeService.authenticate(user);
+    await playtimeService.authenticate(maggieCredentials);
 
     popsmoke.userId = user._id;
     popsmokePlaylist = await playtimeService.createPlaylist(popsmoke);

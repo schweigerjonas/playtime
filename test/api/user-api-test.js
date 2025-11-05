@@ -1,6 +1,6 @@
 import { assert } from "chai";
 import { playtimeService } from "./playtime-service.js";
-import { maggie, testUsers } from "../fixtures.js";
+import { maggie, maggieCredentials, testUsers } from "../fixtures.js";
 import { assertSubset } from "../test-utils.js";
 import { db } from "../../src/models/db.js";
 
@@ -12,7 +12,7 @@ suite("User API tests", () => {
 
     playtimeService.clearAuth();
     await playtimeService.createUser(maggie);
-    await playtimeService.authenticate(maggie);
+    await playtimeService.authenticate(maggieCredentials);
 
     await playtimeService.deleteAllUsers();
     for (let i = 0; i < testUsers.length; i += 1) {
@@ -21,7 +21,7 @@ suite("User API tests", () => {
     }
 
     await playtimeService.createUser(maggie);
-    await playtimeService.authenticate(maggie);
+    await playtimeService.authenticate(maggieCredentials);
   });
   teardown(async () => {});
 
@@ -37,7 +37,7 @@ suite("User API tests", () => {
     await playtimeService.deleteAllUsers();
 
     await playtimeService.createUser(maggie);
-    await playtimeService.authenticate(maggie);
+    await playtimeService.authenticate(maggieCredentials);
 
     returnedUsers = await playtimeService.getAllUsers();
     assert.equal(returnedUsers.length, 1);
@@ -62,7 +62,7 @@ suite("User API tests", () => {
     await playtimeService.deleteAllUsers();
 
     await playtimeService.createUser(maggie);
-    await playtimeService.authenticate(maggie);
+    await playtimeService.authenticate(maggieCredentials);
 
     try {
       const returnedUser = await playtimeService.getUser(users[0]._id);

@@ -21,5 +21,8 @@ export const webRoutes = [
   { method: "POST", path: "/playlist/{id}/track", config: playlistController.addTrack },
   { method: "GET", path: "/playlist/{playlistId}/track/{id}", config: playlistController.deleteTrack },
 
+  { method: "POST", path: "/playlist/{id}/image", config: playlistController.uploadImage },
+  { method: "GET", path: "/playlist/{id}/image", config: playlistController.deleteImage },
+
   { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } },
 ];

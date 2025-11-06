@@ -4,6 +4,10 @@ const { Schema } = Mongoose;
 
 const playlistSchema = new Schema({
   title: String,
+  img: {
+    url: String,
+    publicId: String,
+  },
   userId: {
     type: Schema.Types.ObjectId,
     ref: "User",
